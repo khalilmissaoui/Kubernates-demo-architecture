@@ -53,19 +53,40 @@ spec:
             - name: PORT
               value: "8080"
             - name: PRODUCT_CATALOG_SERVICE_ADDR
-              value: "productcatalogservice:3550"
+              valueFrom:
+                configMapKeyRef:
+                  name: service-configmap
+                  key: PRODUCT_CATALOG_SERVICE_ADDR
             - name: CURRENCY_SERVICE_ADDR
-              value: "currencyservice:7000"
+              valueFrom:
+                configMapKeyRef:
+                  key: CURRENCY_SERVICE_ADDR
+                  name: service-configmap
             - name: CART_SERVICE_ADDR
-              value: "cartservice:7070"
+              valueFrom:
+                configMapKeyRef:
+                  key: CART_SERVICE_ADDR
+                  name: service-configmap
             - name: RECOMMENDATION_SERVICE_ADDR
-              value: "recommendationservice:8080"
+              valueFrom:
+                configMapKeyRef:
+                  key: RECOMMENDATION_SERVICE_ADDR
+                  name: service-configmap
             - name: SHIPPING_SERVICE_ADDR
-              value: "shippingservice:50051"
+              valueFrom:
+                configMapKeyRef:
+                  key: SHIPPING_SERVICE_ADDR
+                  name: service-configmap
             - name: CHECKOUT_SERVICE_ADDR
-              value: "checkoutservice:5050"
+              valueFrom:
+                configMapKeyRef:
+                  key: CHECKOUT_SERVICE_ADDR
+                  name: service-configmap
             - name: AD_SERVICE_ADDR
-              value: "adservice:9555"
+              valueFrom:
+                configMapKeyRef:
+                  key: AD_SERVICE_ADDR
+                  name: service-configmap
             - name: ENABLE_PROFILER
               value: "0"
           resources:

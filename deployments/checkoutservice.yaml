@@ -40,17 +40,35 @@ spec:
             - name: PORT
               value: "5050"
             - name: PRODUCT_CATALOG_SERVICE_ADDR
-              value: "productcatalogservice:3550"
+              valueFrom:
+                configMapKeyRef:
+                  name: service-configmap
+                  key: PRODUCT_CATALOG_SERVICE_ADDR
             - name: SHIPPING_SERVICE_ADDR
-              value: "shippingservice:50051"
+              valueFrom:
+                configMapKeyRef:
+                  key: SHIPPING_SERVICE_ADDR
+                  name: service-configmap
             - name: PAYMENT_SERVICE_ADDR
-              value: "paymentservice:50051"
+              valueFrom:
+                configMapKeyRef:
+                  key: PAYMENT_SERVICE_ADDR
+                  name: service-configmap
             - name: EMAIL_SERVICE_ADDR
-              value: "emailservice:5000"
+              valueFrom:
+                configMapKeyRef:
+                  key: EMAIL_SERVICE_ADDR
+                  name: service-configmap
             - name: CURRENCY_SERVICE_ADDR
-              value: "currencyservice:7000"
+              valueFrom:
+                configMapKeyRef:
+                  key: CURRENCY_SERVICE_ADDR
+                  name: service-configmap
             - name: CART_SERVICE_ADDR
-              value: "cartservice:7070"
+              valueFrom:
+                configMapKeyRef:
+                  key: CART_SERVICE_ADDR
+                  name: service-configmap
           resources:
             requests:
               cpu: 100m

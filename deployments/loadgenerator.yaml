@@ -58,7 +58,10 @@ spec:
           image: gcr.io/google-samples/microservices-demo/loadgenerator:v0.8.0
           env:
             - name: FRONTEND_ADDR
-              value: "frontend:80"
+              valueFrom:
+                configMapKeyRef:
+                  name: service-configmap
+                  key: FRONTEND_ADDR
             - name: USERS
               value: "10"
           resources:
